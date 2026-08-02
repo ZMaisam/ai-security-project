@@ -1,7 +1,7 @@
 ## Foundational AI Security Operations
 
 ### What is AI Security?
-According to the core architecture of the `Anthropic-Cybersecurity-Skills` repository, **AI Security** shifts away from traditional static code security to focus on protecting the cognitive and boundary interfaces of Large Language Models (LLMs). Because AI systems interpret instructions (code) and untrusted data (user inputs) inside the exact same text window, they are highly vulnerable to manipulation. 
+**AI Security** shifts away from traditional static code security to focus on protecting the cognitive and boundary interfaces of Large Language Models (LLMs). Because AI systems interpret instructions (code) and untrusted data (user inputs) inside the exact same text window, they are highly vulnerable to manipulation. 
 
 AI Security treats the model's text engine as an untrusted system layer. Security is achieved by placing a deterministic, automated **Security Gateway Interceptor** between the user, the AI model, and the external tools it tries to connect with. This project outlines 10 foundational skills required to enforce this perimeter and keep agentic AI deployments completely secure.
 
