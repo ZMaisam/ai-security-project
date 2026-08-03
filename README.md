@@ -1,8 +1,6 @@
 # AI Security — 10 Skills, Explained and Implemented
 
-This repository documents my coursework assignment for the **AI Security** track of a cybersecurity skills assignment, based on the [Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) library — an open-source collection of 800+ structured, MITRE-mapped cybersecurity practitioner skills.
-
-Each student was assigned a security domain and asked to study 10 skills within it, write explanations of each, and — beyond just reading about them — implement and test each skill hands-on against a real system. This repo contains both halves of that work: the explanations, and the actual code and output from running each skill.
+This repository documents my coursework assignment for the **AI Security** track of a cybersecurity skills assignment, based on the [Anthropic-Cybersecurity-Skills](https://github.com/mukul975/Anthropic-Cybersecurity-Skills) library — an open-source collection of 800+ structured cybersecurity practitioner skills.
 
 ## What's inside
 
@@ -14,23 +12,6 @@ Each `.md` file in this repo covers one skill and follows the same structure:
 - **Implementation** — the actual Python code used to test/demonstrate it
 - **Output and what it means** — the real output produced, with a plain-language breakdown of what it shows
 - **When to use it** — the practical context where this control applies
-
-## The 10 skills
-
-| # | File | Skill |
-|---|---|---|
-| 1 | [`automated-pii-masking-and-data-redaction.md`](./automated-pii-masking-and-data-redaction.md) | Detecting and redacting PII (emails, SSNs, phone numbers, credit cards) from LLM output |
-| 2 | [`context-aware-human-in-the-loop-gatekeeping.md`](./context-aware-human-in-the-loop-gatekeeping.md) | Requiring human approval before an AI agent executes high-impact actions |
-| 3 | [`defending-against-indirect-prompt-injection.md`](./defending-against-indirect-prompt-injection.md) | Testing whether a model follows hidden instructions embedded in retrieved/RAG content |
-| 4 | [`deny-by-default-capability-mapping.md`](./deny-by-default-capability-mapping.md) | Explicit tool allowlisting so an agent can only use pre-approved capabilities |
-| 5 | [`outbound-response-validation-and-safety-filters.md`](./outbound-response-validation-and-safety-filters.md) | Scanning an LLM's response for sensitive data or policy violations before it reaches the user |
-| 6 | [`post-inference-system-prompt-protection.md`](./post-inference-system-prompt-protection.md) | Testing whether a model's hidden system prompt can be extracted via direct or indirect prompting |
-| 7 | [`rigid-file-ingestion-extension-enforcement.md`](./rigid-file-ingestion-extension-enforcement.md) | *(Replaced — see note below)* Red-teaming an LLM with adversarial jailbreak prompts |
-| 8 | [`securing-agentic-ai-tool-invocation.md`](./securing-agentic-ai-tool-invocation.md) | The full layered control set governing how an agent invokes tools with real side effects |
-| 9 | [`structural-error-masking-and-exception-management.md`](./structural-error-masking-and-exception-management.md) | Ensuring internal failures in a security gate always fail closed (deny), never leak details |
-| 10 | [`user-rate-limiting-and-token-throttling.md`](./user-rate-limiting-and-token-throttling.md) | Capping request length/volume to prevent resource abuse and aid extraction-attempt detection |
-
-> **Note on Skill 7:** My original 10th topic, "rigid file ingestion extension enforcement," did not correspond to any skill in the source repository. It was replaced with **LLM red-teaming with garak** — a core AI Security skill involving systematic adversarial testing of a model's jailbreak resistance. The filename was kept as-is to preserve the original assignment structure; its content documents the replacement skill.
 
 ## Lab environment
 
