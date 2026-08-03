@@ -1,8 +1,4 @@
-# Context-Aware Human-in-the-Loop Gatekeeping
-
-**Domain:** AI Security
-**Related repo skill:** `securing-agentic-ai-tool-invocation`
-**MITRE ATLAS:** AML.T0053 (LLM Plugin Compromise)
+# securing-agentic-ai-tool-invocation
 
 ## What it is
 
