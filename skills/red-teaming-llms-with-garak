@@ -1,11 +1,5 @@
 # Red-Teaming LLMs with Garak
 
-**Domain:** AI Security
-**Related repo skill:** `red-teaming-llms-with-garak`
-**MITRE ATLAS:** AML.T0054 (LLM Jailbreak)
-
-> **Note:** This file replaces the originally planned "rigid file ingestion extension enforcement" topic, which did not correspond to any skill in the reference repository. It was substituted with LLM red-teaming, a core AI Security skill that was implemented and tested hands-on.
-
 ## What it is
 
 Garak is an open-source LLM vulnerability scanner, often described as "nmap for LLMs." Rather than testing one jailbreak prompt at a time by hand, garak runs large, organized batteries of adversarial prompts ("probes") against a target model to systematically surface weaknesses — persona-override jailbreaks, prompt injection susceptibility, toxic content generation, training-data leakage, and more — and scores the results automatically.
