@@ -1,0 +1,13 @@
+# AI Security Specification: Defending LLMs with Guardrails
+## 📌 What it is
+
+A runtime "guardrail" layer sits between a user and an LLM (and between the LLM and its response), inspecting and constraining what flows in both directions. This skill combines three complementary approaches: a semantic safety classifier (Llama Guard) that judges whether a prompt or response is safe, a programmable dialogue-rail framework (NeMo Guardrails) that enforces conversational policy, and a deterministic scanner pipeline (LLM Guard) that checks for specific patterns like prompt injection, toxicity, and secrets.
+---
+
+## 🔍 Why it matters
+ An LLM's own training doesn't guarantee it will always refuse harmful requests or avoid leaking sensitive data — guardrails add an independent, auditable layer of defense that doesn't rely on the model "deciding correctly" every time. This is defense-in-depth: even if one layer fails, another can still catch the problem.
+
+## How it works
+Input scanners check a user's prompt before it reaches the model (blocking known jailbreak/injection patterns, enforcing length limits). Output scanners check the model's response before it reaches the user (redacting PII, blocking toxic content, catching policy violations). Programmable rails add conversational logic on top (e.g., refusing off-topic requests).
+
+## When to use it 
