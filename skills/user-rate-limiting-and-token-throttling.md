@@ -1,8 +1,5 @@
 # User Rate Limiting and Token Throttling
 
-**Domain:** AI Security
-**Related repo skill:** `defending-llms-with-guardrails`
-
 ## What it is
 
 Rate limiting and token throttling are input-side controls that cap how much a single user or request can demand from an LLM system — either by limiting how many requests come in over time (rate limiting) or by capping the length/complexity of any single request (token throttling). A prompt or request exceeding these limits is rejected or truncated before it ever reaches the model.
