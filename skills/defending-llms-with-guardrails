@@ -1,8 +1,4 @@
-# Outbound Response Validation and Safety Filters
-
-**Domain:** AI Security
-**Related repo skill:** `defending-llms-with-guardrails`
-**MITRE ATLAS:** AML.T0054, AML.T0057
+# defending-llms-with-guardrails
 
 ## What it is
 
