@@ -1,9 +1,5 @@
 # Structural Error Masking and Exception Management
 
-**Domain:** AI Security
-**Related repo skill:** `securing-agentic-ai-tool-invocation`
-**MITRE ATLAS:** AML.T0053 (LLM Plugin Compromise)
-
 ## What it is
 
 Structural error masking is the practice of ensuring that any internal failure inside a security-critical function — an unexpected exception, a malformed input, a bug — never leaks internal details (stack traces, code paths, system internals) to the caller, and instead always resolves to a safe, generic, deny-by-default outcome. It's "structural" because the safety property is built into the control flow itself (wrapping the whole decision path in error handling), not left to be handled correctly by chance at every individual call site.
