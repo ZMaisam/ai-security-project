@@ -1,9 +1,5 @@
 # Deny-by-Default Capability Mapping
 
-**Domain:** AI Security
-**Related repo skill:** `securing-agentic-ai-tool-invocation`
-**MITRE ATLAS:** AML.T0053 (LLM Plugin Compromise)
-
 ## What it is
 
 Deny-by-default capability mapping is the practice of explicitly enumerating every tool/capability an AI agent is allowed to use, along with the exact shape of arguments each tool accepts — and rejecting anything that isn't on that list, rather than trying to enumerate and block everything *bad*. Any tool call to something not explicitly allowlisted is denied automatically, with no exceptions.
