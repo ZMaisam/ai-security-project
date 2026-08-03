@@ -1,10 +1,5 @@
 # Securing Agentic AI Tool Invocation
 
-**Domain:** AI Security
-**Related repo skill:** `securing-agentic-ai-tool-invocation` (full skill)
-**MITRE ATLAS:** AML.T0053 (LLM Plugin Compromise)
-**OWASP Agentic AI Top 10:** Tool Misuse, Excessive Agency, Privilege Compromise
-
 ## What it is
 
 This is the umbrella control governing the point where an AI agent decides *which tool to call, with what arguments, and when*. Autonomous agents make this decision by reasoning over inputs that may be attacker-influenced, which makes the tool-invocation boundary the single highest-risk control point in an agentic system. Securing it combines several layered defenses rather than any one single check: a deny-by-default tool allowlist, per-tool argument validation, least-privilege identity scoping, human-in-the-loop approval for high-impact actions, and audit logging — all working together as defense-in-depth.
