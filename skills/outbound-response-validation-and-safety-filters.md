@@ -1,0 +1,57 @@
+# Outbound Response Validation and Safety Filters
+
+**Domain:** AI Security
+**Related repo skill:** `defending-llms-with-guardrails`
+**MITRE ATLAS:** AML.T0054, AML.T0057
+
+## What it is
+
+Outbound response validation is an output-side guardrail that inspects an LLM's generated response *before* it reaches the end user, checking for problems such as toxic content, leaked sensitive data, or policy violations — and blocking, redacting, or replacing the response if something is found. This is the mirror image of input filtering: input filters protect the model from bad prompts, output filters protect the user (and the organization) from a bad response.
+
+## Why it matters
+
+Even a well-behaved model can occasionally produce a response containing sensitive data it was fed earlier in a conversation, or content that violates a company's policy despite the prompt itself looking benign. Relying solely on the model to police its own output means there's no independent check if the model's judgment fails in a specific case — an output-side filter provides that independent layer.
+
+## How it works
+
+A response is scanned by a set of scanners, each responsible for a specific class of problem (sensitive data, toxicity, policy violations). If any scanner flags the response as unsafe, the pipeline can redact the offending content, or replace the entire response with a safe fallback message, rather than passing the original response through unchecked.
+
+## Implementation
+
+```python
+import re
+
+PII_PATTERNS = {
+    "EMAIL": r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}",
+    "SSN": r"\b\d{3}-\d{2}-\d{4}\b",
+    "CREDIT_CARD": r"\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",
+}
+
+def scan_output_for_pii(response):
+    findings = {}
+    redacted = response
+    for label, pattern in PII_PATTERNS.items():
+        matches = re.findall(pattern, response)
+        if matches:
+            findings[label] = matches
+            redacted = re.sub(pattern, f"[REDACTED_{label}]", redacted)
+    return findings, redacted
+
+test_output = "Sure, contact John at john.doe@example.com or call, his SSN is 123-45-6789."
+findings, redacted = scan_output_for_pii(test_output)
+print(f"ORIGINAL: {test_output}\nFINDINGS: {findings}\nREDACTED: {redacted}")
+```
+
+## Output and what it means
+
+```
+ORIGINAL: Sure, contact John at john.doe@example.com or call, his SSN is 123-45-6789.
+FINDINGS: {'EMAIL': ['john.doe@example.com'], 'SSN': ['123-45-6789']}
+REDACTED: Sure, contact John at [REDACTED_EMAIL] or call, his SSN is [REDACTED_SSN].
+```
+
+In plain terms: the model's original response contained a real email address and SSN — both were identified precisely and replaced with clear placeholders before the response was allowed to reach a user. Note this scanner is deliberately checking the model's *output*, not its input — the goal is to catch a problem after generation, as a last line of defense, regardless of whether the sensitive data came from the user's own message, a retrieved document, or the model's own prior context. Even if every earlier stage in the pipeline worked correctly, this stage provides an independent guarantee that sensitive data doesn't make it out the other end.
+
+## When to use it
+
+Any LLM application where the model's response could plausibly contain sensitive data or unsafe content — customer service bots, internal knowledge assistants, or any pipeline whose output is logged, displayed, or forwarded to other systems.
