@@ -1,8 +1,4 @@
-# Defending Against Indirect Prompt Injection
-
-**Domain:** AI Security
-**Related repo skill:** `detecting-indirect-prompt-injection`
-**MITRE ATLAS:** AML.T0051.001 (LLM Prompt Injection: Indirect)
+# detecting-indirect-prompt-injection
 
 ## What it is
 
