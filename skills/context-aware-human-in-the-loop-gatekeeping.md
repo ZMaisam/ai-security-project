@@ -1,4 +1,4 @@
-# securing-agentic-ai-tool-invocation
+# context-aware-human-in-the-loop-gatekeeping.md
 
 ## What it is
 
